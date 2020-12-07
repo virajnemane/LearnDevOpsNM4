@@ -33,6 +33,8 @@ Consider below things while creating jenkins server.
 2) Create customized jenkins startup and stop script.
 3) You should login with your id in jenkins(Not with default user.) 
 
+Note - consider ec2-user as a application user. Authentication done with PEM file only.
+
 Tips
 -----
 First create all VPC as per given region and other details.
