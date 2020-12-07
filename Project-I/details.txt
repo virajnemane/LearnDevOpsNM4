@@ -32,3 +32,18 @@ Consider below things while creating jenkins server.
 1) Jenkins should be running with Jenkins user.
 2) Create customized jenkins startup and stop script.
 3) You should login with your id in jenkins(Not with default user.) 
+
+Tips
+-----
+First create all VPC as per given region and other details.
+
+Major part is ansible script used in background of all 3 ci/cd pipeline. 
+
+So first create ansible script which will spin ec2 instance and will consider AMI and Subnet as per parameter provided.
+i.e. if I provide application as BATA and environment as DEV, then ec2 instance should get created in public subnet of DEV vpc with amazon linux.
+
+Once you able to create above scripts, upload it in git, and create ci/cd pipeline which will download this code and execute ansible script. Use ansible plugin in pipeline.
+
+In second ci/cd, create required directory structure, environment variables and install requried software which is required to run java application.
+
+In thrid ci/cd, you have already done this while learning jenkins, so I guess you already know this. 
