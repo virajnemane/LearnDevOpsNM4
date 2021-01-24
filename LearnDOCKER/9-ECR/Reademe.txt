@@ -1,0 +1,18 @@
+#Create repository on ECR with the name "python"
+
+#Spin ec2 instance and assign admin role
+
+#download python image from hub.docker.com
+docker pull python
+
+#Define docker registry
+export DOCKER_REGISTRY=059580869719.dkr.ecr.us-east-2.amazonaws.com/python
+
+#Login to repository
+execute aws configure and configure region
+PASS=`aws ecr get-login-password`
+docker login -u AWS -p $PASS $DOCKER_REGISTRY
+
+#tag and push
+docker tag python  $DOCKER_REGISTRY:latest
+docker image push $DOCKER_REGISTRY:latest
